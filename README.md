@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Portfolio Website
 
 A modern, responsive portfolio website built with React, Vite, and Tailwind CSS featuring a cyberpunk-inspired design.
@@ -106,3 +107,6 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 Ritik Roushan Rana - ritikrana8596@gmail.com
 
 Project Link: [https://github.com/SHIELD78/portfolio](https://github.com/SHIELD78/portfolio)
+=======
+# Portfolio
+>>>>>>> 419cf1d5af4c75511799748f153e49ea09fd0702
