@@ -1,5 +1,6 @@
 "use client"
 
+
 import { useState, useEffect } from "react"
 import {
   Shield,
@@ -75,6 +76,8 @@ export default function Portfolio() {
       tech: ["Flutter", "Firebase", "UI/UX", "Android Development"],
       icon: Eye,
       color: "from-blue-500 to-cyan-500",
+      github: "https://github.com/SHIELD78/VTOUR",
+      
     },
     {
       title: "SSH Honeypot with ELK Stack",
@@ -83,6 +86,8 @@ export default function Portfolio() {
       tech: ["Cybersecurity", "Cowrie", "Ubuntu", "ELK", "Virtual Machines"],
       icon: Bug,
       color: "from-red-500 to-pink-500",
+      demo: "https://youtu.be/6NElUW4gqSc",
+      
     },
     {
       title: "🎯 Organizo – Task Management Web App",
@@ -91,6 +96,8 @@ export default function Portfolio() {
       tech: ["React", "Express.js", "MongoDB", "Clerk Auth"],
       icon: Terminal,
       color: "from-purple-500 to-violet-500",
+      github: "https://github.com/SHIELD78/web-project",
+      
     },
   ]
 
@@ -401,69 +408,77 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4 font-mono">
-              <span className="text-green-400">&gt;</span> Projects
-            </h2>
-            <p className="text-xl text-gray-400 font-mono">Featured development and technical projects</p>
-          </div>
+<section id="projects" className="py-20 relative">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-white mb-4 font-mono">
+        <span className="text-green-400">&gt;</span> Projects
+      </h2>
+      <p className="text-xl text-gray-400 font-mono">Featured development and technical projects</p>
+    </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="group relative hover:-translate-y-2 hover:scale-105 transition-all duration-300"
-              >
-                <Card className="bg-gray-900/50 backdrop-blur-sm border-gray-700 hover:border-cyan-500/50 transition-all duration-300 h-full">
-                  <div className="p-6">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div
-                        className={`p-2 rounded-lg bg-gradient-to-r ${project.color} group-hover:scale-110 transition-transform`}
-                      >
-                        <project.icon className="h-5 w-5 text-white" />
-                      </div>
-                      <h3 className="text-white font-mono text-lg font-semibold">{project.title}</h3>
-                    </div>
-                    <p className="text-gray-400 font-mono text-sm leading-relaxed mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech, techIndex) => (
-                        <Badge
-                          key={techIndex}
-                          variant="outline"
-                          className="border-gray-600 text-gray-300 bg-gray-800/50 font-mono text-xs"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className="flex space-x-3">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-gray-600 text-gray-300 hover:border-green-500 hover:text-green-400 font-mono bg-transparent hover:scale-105 transition-all"
-                      >
-                        <Github className="mr-2 h-3 w-3" />
-                        Code
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-gray-600 text-gray-300 hover:border-cyan-500 hover:text-cyan-400 font-mono bg-transparent hover:scale-105 transition-all"
-                      >
-                        <ExternalLink className="mr-2 h-3 w-3" />
-                        Demo
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <div
+          key={index}
+          className="group relative hover:-translate-y-2 hover:scale-105 transition-all duration-300"
+        >
+          <Card className="bg-gray-900/50 backdrop-blur-sm border-gray-700 hover:border-cyan-500/50 transition-all duration-300 h-full">
+            <div className="p-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <div
+                  className={`p-2 rounded-lg bg-gradient-to-r ${project.color} group-hover:scale-110 transition-transform`}
+                >
+                  <project.icon className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="text-white font-mono text-lg font-semibold">{project.title}</h3>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <p className="text-gray-400 font-mono text-sm leading-relaxed mb-4">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech, techIndex) => (
+                  <Badge
+                    key={techIndex}
+                    variant="outline"
+                    className="border-gray-600 text-gray-300 bg-gray-800/50 font-mono text-xs"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+              <div className="flex space-x-3">
+                {/* Show Code button unless it's the ELK project */}
+                {project.title !== "SSH Honeypot + ELK + Wireshark" && project.github && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-gray-600 text-gray-300 hover:border-green-500 hover:text-green-400 font-mono bg-transparent hover:scale-105 transition-all"
+                    onClick={() => window.open(project.github, "_blank")}
+                  >
+                    <Github className="mr-2 h-3 w-3" />
+                    Code
+                  </Button>
+                )}
 
+                {/* Always show Demo button if available */}
+                {project.demo && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-gray-600 text-gray-300 hover:border-cyan-500 hover:text-cyan-400 font-mono bg-transparent hover:scale-105 transition-all"
+                    onClick={() => window.open(project.demo, "_blank")}
+                  >
+                    <ExternalLink className="mr-2 h-3 w-3" />
+                    Demo
+                  </Button>
+                )}
+              </div>
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Experience Section */}
       <section id="experience" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
