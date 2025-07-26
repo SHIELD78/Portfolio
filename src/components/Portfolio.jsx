@@ -44,7 +44,7 @@ export default function Portfolio() {
     {
       category: "Programming Languages",
       icon: Terminal,
-      skills: ["C++", "Java", "Python", "JavaScript", "Dart"],
+      skills: ["C++", "Java", "JavaScript", "Dart"],
       color: "from-blue-600 to-blue-400",
     },
     {
